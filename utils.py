@@ -6,11 +6,14 @@ import random
 import re
 import time
 from statistics import mean
+from typing import List
 
 import numpy as np
 import openai  # For GPT-3 API ...
 import torch
 from torch.utils.data import Dataset
+
+from argparser import ArgumentParser
 
 
 # https://review-of-my-life.blogspot.com/2017/11/python-dict-shuffle.html
@@ -331,8 +334,10 @@ def answer_cleansing(args, pred):
     return pred
 
 
-def create_demo_text(args, cot_flag):
-    x, z, y = [], [], []
+def create_demo_text(args: ArgumentParser, cot_flag: bool):
+    x: List[str] = []
+    y: List[str] = []
+    z: List[str] = []
 
     # example sentences ...
     if args.dataset in ("multiarith", "gsm8k"):

@@ -2,3 +2,4 @@ openai==0.18.0
 torch
 torchtext
 names-dataset
+typed-argument-parser
